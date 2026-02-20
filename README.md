@@ -1,6 +1,5 @@
 # CryptoStreaming
 
+WORKING !
 
-working 
-
-![alt text](image.png)
+![alt text](terminal.png)
