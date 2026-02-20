@@ -4,4 +4,5 @@ WORKING !
 
 ![alt text](demo/terminal.png)
 
-![alt text](demo/dashboard-demo-v0.mp4)
+
+[![Watch the video](demo/terminal.png)](https://github.com/HamzaDamouh/crypto_streaming/raw/main/demo/dashboard-demo-v0.mp4)
