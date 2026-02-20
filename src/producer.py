@@ -15,6 +15,8 @@ KAFKA_CONF = {
     'compression.type': 'snappy',
     'enable.idempotence': True
 }
+
+# Listening to streams
 BINANCE_WS_URL = "wss://stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade"
 
 # Global stats
@@ -51,17 +53,16 @@ def on_message(ws, message):
             
         payload = data['data']
         
-        # e: event type, E: event time, s: symbol, t: trade id, p: price, q: quantity, T: trade time
+        # extract the fields: e=event, E=time, s=symbol, t=trade id, p=price, q=qty
         parsed_msg = {
             'symbol': payload['s'],
             'price': float(payload['p']),
             'quantity': float(payload['q']),
             'trade_id': payload['t'],
-            'timestamp': payload['E'], # Binance event time ms as requested
+            'timestamp': payload['E'], 
             'ingested_at': current_time_ms
         }
         
-        # Publish to Kafka
         if producer:
             producer.produce(
                 KAFKA_TOPIC,
