@@ -89,7 +89,17 @@ def create_dashboard():
                             "lineWidth": 2,
                             "drawStyle": "line"
                         }
-                    }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "A"},
+                            "properties": [{"id": "displayName", "value": "BTC Price"}]
+                        },
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "B"},
+                            "properties": [{"id": "displayName", "value": "VWAP 5s"}]
+                        }
+                    ]
                 }
             },
             # Panel 2: RSI (Right Half)
@@ -142,10 +152,21 @@ def create_dashboard():
                         }
                     },
                     "overrides": [
-                         {
-                            "matcher": {"id": "byName", "options": "BTC"},
-                            "properties": [{"id": "color", "value": {"fixedColor": "orange", "mode": "fixed"}}]
-                         }
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "A"},
+                            "properties": [
+                                {"id": "displayName", "value": "BTC"},
+                                {"id": "color", "value": {"fixedColor": "orange", "mode": "fixed"}}
+                            ]
+                        },
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "B"},
+                            "properties": [{"id": "displayName", "value": "ETH"}]
+                        },
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "C"},
+                            "properties": [{"id": "displayName", "value": "SOL"}]
+                        }
                     ]
                 }
             },
@@ -171,7 +192,25 @@ def create_dashboard():
                         "refId": "B",
                         "legendFormat": "SOL Price"
                     }
-                ]
+                ],
+                "fieldConfig": {
+                    "defaults": {
+                        "custom": {
+                            "lineWidth": 2,
+                            "drawStyle": "line"
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "A"},
+                            "properties": [{"id": "displayName", "value": "ETH Price"}]
+                        },
+                        {
+                            "matcher": {"id": "byFrameRefID", "options": "B"},
+                            "properties": [{"id": "displayName", "value": "SOL Price"}]
+                        }
+                    ]
+                }
             }
         ],
         "schemaVersion": 38

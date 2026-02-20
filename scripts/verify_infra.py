@@ -4,7 +4,7 @@ import redis
 from confluent_kafka.admin import AdminClient, NewTopic
 
 def check_kafka():
-    print("Verifing Kafka conection and topics...")
+    print("Verifying Kafka conection and topics...")
     
     admin_client = AdminClient({'bootstrap.servers': 'localhost:9092'})
     topic = "crypto_trades"  
