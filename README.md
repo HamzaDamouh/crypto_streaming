@@ -2,6 +2,6 @@
 
 WORKING !
 
-![alt text](terminal.png)
+![alt text](demo/terminal.png)
 
-![alt text](dashboard-preview.png)
+![alt text](demo/dashboard-demo-v0.mp4)
